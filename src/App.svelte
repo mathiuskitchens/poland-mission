@@ -398,6 +398,7 @@
   }
 
   .question-mark {
+    font-size: 1rem;
     display: inline-block;
     color: #d4a843;
     animation: bounce-q 2s ease-in-out infinite;
