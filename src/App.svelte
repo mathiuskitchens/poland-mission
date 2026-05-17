@@ -19,7 +19,7 @@
 
   // --- UPDATE THESE AS FUNDRAISING PROGRESSES ---
   const GOAL      = 3700
-  const RAISED    = 0      // dollars raised so far
+  const RAISED    = 500      // dollars raised so far
   const JUNE_GOAL = 1850   // half by June 1
   // ------------------------------------------------
 
@@ -66,7 +66,7 @@
         Where is Poland<span class="question-mark">?</span>
       {:else}
         <button type="button" class="hero-title-button" on:click={handleWhereIsPoland}>
-          Where is Poland<span class="question-mark">?</span>
+          Poland<span class="question-mark">?</span>
         </button>
       {/if}
     </h1>
