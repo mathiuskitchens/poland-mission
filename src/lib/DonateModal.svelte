@@ -2,10 +2,8 @@
   import { createEventDispatcher } from 'svelte'
   const dispatch = createEventDispatcher()
 
-  // UPDATE THIS with your actual donation link/platform
-  const DONATION_URL = 'YOUR_DONATION_LINK_HERE'
-  const CHURCH_NAME  = 'YOUR_CHURCH_NAME'
-  const PAYPAL_EMAIL = 'YOUR_PAYPAL_OR_VENMO'
+  const DONATION_URL = 'https://app.managedmissions.com/Donations/Donate/9526'
+  const MISSIONARY_NAME = 'Matthew Kitchens'
 
   function close() {
     dispatch('close')
@@ -30,54 +28,47 @@
       <p class="subtitle">Every gift — big or small — sends hope to Poland</p>
     </div>
 
-    <div class="options">
+    <div class="steps">
 
-      <!-- Option 1: Online link -->
-      <div class="option">
-        <div class="option-num">1</div>
-        <div class="option-body">
-          <h3>Give Online</h3>
-          <p>Visit the official giving portal and designate your gift.</p>
-          {#if DONATION_URL !== 'YOUR_DONATION_LINK_HERE'}
-            <a href={DONATION_URL} target="_blank" rel="noopener noreferrer" class="option-link">
-              Open Giving Portal &rarr;
-            </a>
-          {:else}
-            <span class="placeholder-note">[ Donation link coming soon — check back! ]</span>
-          {/if}
-          <p class="memo-note">In the memo or designation field, write:<br />
-            <strong>"Poland Mission — Matthew Kitchens"</strong>
-          </p>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Open the Giving Portal</h3>
+          <p>All donations go through our secure giving portal — please don't use any other method.</p>
+          <a href={DONATION_URL} target="_blank" rel="noopener noreferrer" class="portal-link">
+            Open Giving Portal &rarr;
+          </a>
         </div>
       </div>
 
-      <!-- Option 2: Check -->
-      <div class="option">
-        <div class="option-num">2</div>
-        <div class="option-body">
-          <h3>Write a Check</h3>
-          <p>
-            Make checks payable to <strong>{CHURCH_NAME !== 'YOUR_CHURCH_NAME' ? CHURCH_NAME : '[ Your Church Name ]'}</strong>
-            and write <strong>"Poland Mission — Matthew Kitchens"</strong> in the memo line.
-          </p>
-          <p class="memo-note">Checks can be mailed to the church office or handed to Matthew directly.</p>
+      <div class="step important">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Select <em>{MISSIONARY_NAME}</em> From the Drop-Down</h3>
+          <div class="callout">
+            <span class="callout-icon">⚠️</span>
+            <p>
+              <strong>This step is critical.</strong> On the giving page, you'll see a drop-down menu of missionaries.
+              You <strong>must select "{MISSIONARY_NAME}"</strong> before submitting your gift — otherwise
+              the donation won't be credited to my trip.
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- Option 3: Digital payment -->
-      <div class="option">
-        <div class="option-num">3</div>
-        <div class="option-body">
-          <h3>PayPal / Venmo / Cash App</h3>
-          <p>
-            Send directly to:
-            <strong>{PAYPAL_EMAIL !== 'YOUR_PAYPAL_OR_VENMO' ? PAYPAL_EMAIL : '[ Contact Matthew for details ]'}</strong>
-          </p>
-          <p class="memo-note">Include a note: <strong>"Poland Mission"</strong></p>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Choose Your Amount &amp; Submit</h3>
+          <p>Enter any amount that's meaningful to you and complete the secure checkout. You'll receive a tax-deductible receipt by email.</p>
         </div>
       </div>
 
     </div>
+
+    <a href={DONATION_URL} target="_blank" rel="noopener noreferrer" class="btn-donate-bottom">
+      Open Giving Portal &rarr;
+    </a>
 
     <div class="prayer-note">
       <p>
@@ -86,7 +77,7 @@
       </p>
     </div>
 
-    <button class="btn-close-bottom" on:click={close}>Got it, thanks!</button>
+    <button class="btn-close-bottom" on:click={close}>Close</button>
   </div>
 </div>
 
@@ -174,14 +165,14 @@
     font-size: 0.9rem;
   }
 
-  .options {
+  .steps {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
     margin-bottom: 1.5rem;
   }
 
-  .option {
+  .step {
     display: flex;
     gap: 1rem;
     background: rgba(255, 255, 255, 0.04);
@@ -190,7 +181,12 @@
     padding: 1.1rem 1.25rem;
   }
 
-  .option-num {
+  .step.important {
+    border-color: rgba(220, 20, 60, 0.45);
+    background: rgba(220, 20, 60, 0.06);
+  }
+
+  .step-num {
     width: 32px;
     height: 32px;
     min-width: 32px;
@@ -205,26 +201,62 @@
     margin-top: 2px;
   }
 
-  .option-body h3 {
+  .step.important .step-num {
+    background: linear-gradient(135deg, #dc143c, #a00028);
+    color: #fff;
+  }
+
+  .step-body h3 {
     font-size: 1rem;
     font-weight: 600;
     color: #fff;
     margin-bottom: 0.3rem;
   }
 
-  .option-body p {
+  .step-body h3 em {
+    font-style: normal;
+    color: #d4c080;
+  }
+
+  .step-body p {
     font-size: 0.88rem;
     color: #aab8d8;
     line-height: 1.5;
   }
 
-  .option-body strong {
+  .step-body strong {
     color: #d4c080;
   }
 
-  .option-link {
+  .step.important .step-body strong {
+    color: #ffb8c4;
+  }
+
+  .callout {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+    padding: 0.75rem 0.85rem;
+    background: rgba(220, 20, 60, 0.12);
+    border: 1px solid rgba(220, 20, 60, 0.35);
+    border-radius: 8px;
+  }
+
+  .callout-icon {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  .callout p {
+    margin: 0;
+    color: #f0d6dd;
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
+  .portal-link {
     display: inline-block;
-    margin: 0.5rem 0;
+    margin-top: 0.6rem;
     padding: 0.4rem 1rem;
     background: linear-gradient(135deg, #dc143c, #a00028);
     color: #fff;
@@ -235,28 +267,36 @@
     transition: opacity 0.15s;
   }
 
-  .option-link:hover {
+  .portal-link:hover {
     opacity: 0.85;
     text-decoration: none;
   }
 
-  .placeholder-note {
-    display: inline-block;
-    margin: 0.5rem 0;
-    font-size: 0.82rem;
-    color: #7a8db5;
-    font-style: italic;
+  .btn-donate-bottom {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, #dc143c, #a00028);
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: opacity 0.15s, transform 0.15s;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 6px 20px rgba(220, 20, 60, 0.25);
   }
 
-  .memo-note {
-    margin-top: 0.5rem;
-    font-size: 0.83rem !important;
-    color: #8899bb !important;
+  .btn-donate-bottom:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    text-decoration: none;
   }
 
   .prayer-note {
     text-align: center;
-    padding: 1rem;
+    padding: 1rem 0 0;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     margin-bottom: 1.25rem;
     font-size: 0.88rem;
@@ -270,17 +310,17 @@
 
   .btn-close-bottom {
     width: 100%;
-    padding: 0.85rem;
-    background: linear-gradient(135deg, #d4a843, #a07820);
-    color: #0d1333;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    color: #aab8d8;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    transition: opacity 0.15s, transform 0.15s;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.15s;
   }
 
   .btn-close-bottom:hover {
-    opacity: 0.9;
-    transform: translateY(-1px);
+    background: rgba(255, 255, 255, 0.1);
   }
 </style>

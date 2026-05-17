@@ -195,20 +195,20 @@
     <div class="steps">
       <div class="step">
         <div class="step-num">1</div>
-        <h3>Click Donate Now</h3>
-        <p>Hit the button below to see all the ways you can give — online, check, or digital payment.</p>
+        <h3>Open the Giving Portal</h3>
+        <p>Click <strong>Donate Now</strong> to go to our secure giving portal.</p>
       </div>
       <div class="step-arrow">&rarr;</div>
       <div class="step">
         <div class="step-num">2</div>
-        <h3>Choose Your Amount</h3>
-        <p>Any amount makes a real difference. Need inspiration? Spin the wheel above!</p>
+        <h3>Select <strong>Matthew Kitchens</strong></h3>
+        <p>Choose my name from the drop-down so your gift is credited to my trip.</p>
       </div>
       <div class="step-arrow">&rarr;</div>
       <div class="step">
         <div class="step-num">3</div>
-        <h3>Note the Purpose</h3>
-        <p>Write <strong>"Poland Mission — Matthew Kitchens"</strong> in the memo or designation field.</p>
+        <h3>Give Any Amount</h3>
+        <p>Any amount makes a real difference. Need inspiration? Spin the wheel above!</p>
       </div>
     </div>
 
