@@ -1,0 +1,53 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #07091a;
+  --bg-2: #0d1333;
+  --bg-card: rgba(13, 19, 51, 0.7);
+  --gold: #d4a843;
+  --gold-light: #f0c868;
+  --red: #dc143c;
+  --blue-light: #4a90d9;
+  --white: #ffffff;
+  --muted: #7a8db5;
+  --border: rgba(212, 168, 67, 0.2);
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Inter', sans-serif;
+  --radius: 12px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--white);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+  border: none;
+  outline: none;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--gold-light);
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #1e3060; border-radius: 3px; }
