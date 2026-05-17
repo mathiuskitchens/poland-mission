@@ -2,7 +2,8 @@
   import { createEventDispatcher } from 'svelte'
   const dispatch = createEventDispatcher()
 
-  const DONATION_URL = 'https://app.managedmissions.com/Donations/Donate/9526'
+  const DONATION_URL = 'https://app.managedmissions.com/Donations/Donate/95264'
+
   const MISSIONARY_NAME = 'Matthew Kitchens'
 
   function close() {
