@@ -63,7 +63,7 @@
     <p class="eyebrow">Help Send Matthew to</p>
     <h1 class="hero-title" class:found={polandFound}>
       {#if polandFound}
-        Where is Poland<span class="question-mark">?</span>
+        Poland Found<span class="question-mark">!</span>
       {:else}
         <button type="button" class="hero-title-button" on:click={handleWhereIsPoland}>
           Poland<span class="question-mark">?</span>
