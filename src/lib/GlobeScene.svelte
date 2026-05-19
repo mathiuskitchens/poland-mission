@@ -25,6 +25,10 @@
   const POLAND_LON = 19.5
   const R = 2.0
 
+  const MOBILE_BREAKPOINT = 768
+  const isMobile = () => typeof window !== 'undefined' && window.innerWidth < MOBILE_BREAKPOINT
+  const cameraZ = () => (isMobile() ? 10.2 : 8)
+
   // (lat°, lon°) → 3D position on a sphere of `radius`, matching the
   // equirectangular texture mapping used by three.js SphereGeometry. The
   // texture is sampled at x=(lon+180)/360, which puts theta = (lon+180)° in
@@ -437,7 +441,11 @@
     // Place Poland in the upper-right of the visible disk so it sits in the
     // empty space beside the hero title / progress card rather than behind
     // them. +X = screen right, +Y = screen up, +Z = toward camera.
-    const target = new THREE.Vector3(0.72, 0.46, 0.52).normalize()
+    // On mobile the layout stacks vertically, so center Poland horizontally
+    // and let the pin sit nearer the top of the globe to stay in-frame.
+    const target = isMobile()
+      ? new THREE.Vector3(0.12, 0.48, 0.88).normalize()
+      : new THREE.Vector3(0.72, 0.46, 0.52).normalize()
 
     flyEndQuat.setFromUnitVectors(polandLocal, target)
 
@@ -548,7 +556,7 @@
     scene = new THREE.Scene()
 
     camera = new THREE.PerspectiveCamera(38, w / h, 0.1, 1000)
-    camera.position.set(0, 0, 8)
+    camera.position.set(0, 0, cameraZ())
     camera.lookAt(0, 0, 0)
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
@@ -681,6 +689,7 @@
     if (!container) return
     const w = container.clientWidth, h = container.clientHeight
     camera.aspect = w / h
+    camera.position.z = cameraZ()
     camera.updateProjectionMatrix()
     renderer.setSize(w, h)
   }
