@@ -19,7 +19,7 @@
 
   // --- UPDATE THESE AS FUNDRAISING PROGRESSES ---
   const GOAL      = 3700
-  const RAISED    = 500      // dollars raised so far
+  const RAISED    = 1425      // dollars raised so far
   const JUNE_GOAL = 1850   // half by June 1
   // ------------------------------------------------
 
@@ -73,7 +73,7 @@
     {#if polandFound}
       <p class="hero-tagline found-tagline">Serving communities, sharing hope, crossing oceans for the Gospel</p>
     {:else}
-      <p class="hero-tagline">Click above to find out!</p>
+      <p class="hero-tagline">Click the ? to find Poland!</p>
     {/if}
 
     <!-- Progress Card -->
