@@ -19,7 +19,7 @@
 
   // --- UPDATE THESE AS FUNDRAISING PROGRESSES ---
   const GOAL      = 3700
-  const RAISED    = 1425      // dollars raised so far
+  const RAISED    = 1628      // dollars raised so far
   const JUNE_GOAL = 1850   // half by June 1
   // ------------------------------------------------
 
